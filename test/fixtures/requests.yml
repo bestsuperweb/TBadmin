@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  due_date: 2018-01-26 09:07:57
+  folder: one
+  buyer: one
+  messages: one
+
+two:
+  name: MyString
+  due_date: 2018-01-26 09:07:57
+  folder: two
+  buyer: two
+  messages: two
