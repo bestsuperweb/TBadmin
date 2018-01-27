@@ -7,7 +7,7 @@ class Buyer < ApplicationRecord
 	end
 
   def fae_display_field
-    
+    "#{first_name} #{last_name}"
   end
 
 

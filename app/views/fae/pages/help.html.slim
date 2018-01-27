@@ -1,0 +1,35 @@
+= render 'fae/shared/index_header', title: 'Need some help?', breadcrumbs: false, new_button: false
+
+section.help-section
+  article.content
+    h2 Contact Us
+    p
+      strong> Phone:
+      | 212.862.8900
+      br
+      strong> Email:
+      a href="mailto:tenderbooks@admin.com" tenderbooks@admin.com
+      br
+      strong> Website:
+      a href="http://www.tenderbooks.com" target="_blank" tenderbooks.com
+
+  article.content
+    h2 Reporting A Bug?
+
+    h3 Please include this helpful information:
+    ruby:
+      help_information = {
+        'Version'  => "TenderBooks v1.0",
+        'Date'     => Time.now,
+        'Site'     => request.url,
+        'Env'      => Rails.env,
+        'Browser'  => "#{@browser.name} #{@browser.full_version}",
+        'Platform' => @browser.platform,
+        'User ID'  => current_user.id
+      }
+
+    p
+      - help_information.each do |identifier, value|
+        strong> #{identifier}:
+        = value
+        br

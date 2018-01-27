@@ -1,0 +1,95 @@
+= javascript_include_tag 'https://code.highcharts.com/highcharts.js' 
+= javascript_include_tag 'https://code.highcharts.com/modules/series-label.js' 
+= javascript_include_tag 'https://code.highcharts.com/modules/exporting.js'
+
+header.content-header.js-content-header.-dashboard
+  i.icon-home>
+  | &nbsp;&nbsp;Welcome,
+  strong< = current_user.full_name
+
+== render 'flash_messages'
+
+main.content
+
+  div#admin-dashboard
+
+  table.js-sort-column
+    thead
+      tr
+        th Name
+        th Type
+        th.-action-wide Modified
+    tbody
+      - @list.each do |item|
+        - begin
+          - parent = item.respond_to?(:fae_parent) ? item.fae_parent : nil
+          - edit_path = edit_polymorphic_path([main_app, fae_scope, parent, item])
+          - index_path = polymorphic_path([main_app, fae_scope, parent, item.class.to_s.pluralize.underscore])
+          tr
+            td: a href=edit_path = item.fae_display_field
+            td: a href=index_path = item.class.to_s
+            td = fae_date_format item.updated_at
+        - rescue
+
+javascript:
+
+  if ($('#admin-dashboard').length) {
+
+    Highcharts.chart('admin-dashboard', {
+
+        title: {
+            text: 'TenderBooks Users'
+        },
+
+        subtitle: {
+            text: 'Source: tenderbooks.com'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Number of Users'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2011
+            }
+        },
+
+        series: [{
+            name: 'Buyers',
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+        }, {
+            name: 'Suppliers',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+        }, {
+            name: 'Others',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+  }

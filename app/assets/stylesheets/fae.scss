@@ -1,2 +1,21 @@
 // Do Not Delete this page! FAE depends on it in order to set its highlight color.
 // $c-custom-highlight: #9aa142;
+$global-blue: #09a3e0;
+
+$c-custom-highlight: $global-blue;
+
+$c-notice-content: $global-blue;
+
+// $c-header-bg: #eee;
+
+// $c-text-sub: #777;
+
+// $c-dark-button-gradient-start: #09a3ee;
+// $c-dark-button-gradient-end: $global-blue;
+
+
+#admin-dashboard {
+	width: 80%;
+	height: 600px;
+	margin: 30px auto;
+}
