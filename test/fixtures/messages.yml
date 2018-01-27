@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  string: MyString
+  from: 
+  to: 
+  content: MyText
+  marked: false
+
+two:
+  title: MyString
+  string: MyString
+  from: 
+  to: 
+  content: MyText
+  marked: false
