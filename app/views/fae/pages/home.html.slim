@@ -40,7 +40,7 @@ javascript:
         // If it's okay let's create a notification
         var options = {
                 body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                icon: <%= asset_path('favicon.png') %>
+                icon: "<%= asset_path('favicon.png') %>"
             };
         var notification = new Notification("Welcom to TenderBooks!", options);
     }
@@ -52,7 +52,7 @@ javascript:
           if (permission === "granted") {
             var options = {
                 body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                icon: <%= asset_path('favicon.png') %>
+                icon: "<%= asset_path('favicon.png') %>"
             };
             var notification = new Notification("Welcom to TenderBooks!", options);
           }
