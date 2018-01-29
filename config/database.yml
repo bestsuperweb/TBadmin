@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: production_lenox
+  database: production_tenderbooks
   pool: 5
   username: root
   password: root
